@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sign in</title>
+</head>
+<body>
+    <form method="post" action={%url 'handle_signin'%}>
+        {% csrf_token %}
+        <label for="username">USERNAME</label>
+        <input id="username" type="text" name="username"/></br></br>
+        <label for="pwd">PASSWORD</label>
+        <input id="pwd" type="password" name="password"/></br></br>
+        <button>SIGN-IN</button>
+    </form>
+</body>
+</html>

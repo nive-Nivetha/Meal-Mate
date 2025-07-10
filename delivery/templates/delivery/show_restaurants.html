@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>My Favourite Restaurants</h1>
+    <a href="%url 'addrestaurants'%">Add restaurant</a>
+    <table border>
+        <thead>
+            <tr>
+                <th>Picture</th>
+                <th>Name</th>
+                <th>Cuisinne</th>
+                <th>Ratings</th>
+            </tr>   
+        </thead>
+        <tbody>
+            {%for restaurant in restaurants%}
+            <tr>
+               <td>
+                  <img src="{{restaurant.resimage}}" alt="picture of {{restaurant.resname}}" width="100">
+               </td>
+               <td>{{restaurant.resname}}</td>
+               <td>{{restaurant.cuisine}}</td>
+               <td>{{restaurant.rating}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
