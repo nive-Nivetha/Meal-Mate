@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img src="{{restaurant.resimage}}" alt="{{restaurant.resname}}" width="200">
+    <h1>Menu for {{restaurant.resname}}</h1>
+    <table  border="1" cellpadding="10">
+       <thead>
+        <tr>
+            <th>Image</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>veg/non-veg</th>
+        </tr>
+       </thead>
+       <tbody>
+            {% if menu_items %}
+                {% for item in menu_items %}
+                <tr>
+                    <td><img src="{{ item.picture }}" alt="{{ item.name }}" width="100"></td>
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.description }}</td>
+                    <td>{{ item.price }}</td>
+                    <td>
+                        {% if item.isVeg %}
+                            veg
+                        {% else %}
+                            non-veg
+                        {% endif %}
+                    </td>
+                    <td>
+                        <form method="POST">
+                            {% csrf_token %}
+
+                            <button type="submit">Add to cart</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            {% else %}
+                <tr>
+                    <td colspan="5">No menu items yet..</td>
+                </tr>
+            {% endif %}
+        </tbody>
+    </table>
+    
+</body>
+</html>

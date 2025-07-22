@@ -17,5 +17,17 @@ class Restaurant(models.Model):
     rating = models.FloatField(max_length=10)
 
     def __str__(self):
-        return f"{self.resname} {self.resimage} {self.cuisine} {self.rating}/5"
+        return f"{self.resname}  {self.cuisine} {self.rating}/5"
+    
+class MenuItem(models.Model):
+    restaurant=models.ForeignKey(Restaurant,on_delete=models.CASCADE,related_name="menu_items")
+
+    name = models.CharField(max_length=200)
+    picture = models.CharField(max_length=200,default="https://tse4.mm.bing.net/th/id/OIP.5Uy16-H5NnlOh-XJjztaMwHaHa?pid=Api&P=0&h=180")
+    description = models.CharField(max_length=200)
+    price = models.FloatField(max_length=10)
+    isVeg =models.BooleanField(default=True)
+
+    def __str__(self):
+        return f"{self.name}  {self.description} {self.price}"
 

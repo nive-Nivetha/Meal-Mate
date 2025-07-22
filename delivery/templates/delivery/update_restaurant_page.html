@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update Restaurant Info</title>
+</head>
+<body>
+    <h1>Update Restaurant Info</h1>
+    <form method="POST" action="{% url 'update_restaurant' restaurant.id %}">
+        {% csrf_token %}
+        <label for="name">Restaurant Name:</label>
+        <input type="text" id="name" name="name" value="{{ restaurant.resname }}"><br><br>
+
+        <label for="picture">Image URL:</label>
+        <input type="url" id="picture" name="picture" value="{{ restaurant.resimage }}"><br><br>
+
+        <label for="cuisine">Cuisine:</label>
+        <input type="text" id="cuisine" name="cuisine" value="{{ restaurant.cuisine }}"><br><br>
+
+        <label for="rating">Rating:</label>
+        <input type="number" step="0.1" id="rating" name="rating" value="{{ restaurant.rating }}"><br><br>
+
+        <button type="submit">Update Restaurant</button>
+    </form>
+</body>
+</html>

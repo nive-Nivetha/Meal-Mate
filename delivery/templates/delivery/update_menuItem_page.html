@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update Menu Info</title>
+</head>
+<body>
+    <h1>Update Menu Info</h1>
+    <form method="POST" action="{% url 'update_menuItem' menuItem.id %}">
+        {% csrf_token %}
+        <label for="name">Item Name:</label>
+        <input type="text" id="name" name="name" value="{{ menuItem.name }}"><br><br>
+
+        <label for="picture">Image URL:</label>
+        <input type="url" id="picture" name="picture" value="{{ menuItem.picture}}"><br><br>
+
+        <label for="description">Description</label>
+        <input type="text" id="description" name="description" value="{{ menuItem.description }}"><br><br>
+
+        <label for="price">Price:</label>
+        <input type="number" step="0.1" id="price" name="price" value="{{ menuItem.price }}"><br><br>
+
+        <label for="isVeg">Veg or Non-Veg:</label>
+        <input type="checkbox" id="isVeg" name="isVeg" value="{{ menuItem.isVeg }}"><br><br>
+
+        <button type="submit">Update item</button>
+    </form>
+</body>
+</html>

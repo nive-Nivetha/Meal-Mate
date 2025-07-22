@@ -6,7 +6,9 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Restaurants</h1>
+    <h1>Meal-Mate</h1>
+    <h2>Welcome {{c.username}} to the TN's fastest food delivery app <b>Meal-Mate!</b></h2>
+    <h3>Restaurants</h3>
     <table border="1" cellpadding="10">
         <thead>
             <tr>
@@ -25,15 +27,7 @@
                <td>{{restaurant.resname}}</td>
                <td>{{restaurant.rating}}/5</td>
                <td>
-                <a href="{% url 'restaurant_menu' restaurant.id %}">View Menu</a>
-                <hr>
-                <a href="{% url 'update_restaurant' restaurant.id %}">update info</a>
-                <hr>
-                <form method="POST" action="{% url 'delete_restaurant' restaurant.id %}">
-                    {% csrf_token %}
-
-                    <button type="submit" onClick="return confirm('are you sure to del the restaurant?')">Delete</button>
-                </form>
+                <a href="{% url 'customer_menu' restaurant.id %}">View Menu</a>
                </td>
             </tr>
             {% endfor %}
