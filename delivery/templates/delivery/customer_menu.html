@@ -3,9 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'delivery/css/styles.css' %}">
     <title>Document</title>
 </head>
 <body>
+    <h1>Welcome {{username}}</h1>
+    <a href="{% url 'show_cart_page' username %}">View Cart</a>
+
     <img src="{{restaurant.resimage}}" alt="{{restaurant.resname}}" width="200">
     <h1>Menu for {{restaurant.resname}}</h1>
     <table  border="1" cellpadding="10">
@@ -34,9 +39,10 @@
                         {% endif %}
                     </td>
                     <td>
-                        <form method="POST">
-                            {% csrf_token %}
+                        <form method="POST" action="{% url 'add_to_cart' item.id username %}">
 
+                            {% csrf_token %}
+  
                             <button type="submit">Add to cart</button>
                         </form>
                     </td>

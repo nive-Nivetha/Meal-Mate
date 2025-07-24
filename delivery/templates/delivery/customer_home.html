@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'delivery/css/styles.css' %}">
     <title>Document</title>
 </head>
 <body>
     <h1>Meal-Mate</h1>
-    <h2>Welcome {{c.username}} to the TN's fastest food delivery app <b>Meal-Mate!</b></h2>
+    <h2>Welcome {{username}} to the TN's fastest food delivery app <b>Meal-Mate!</b></h2>
     <h3>Restaurants</h3>
     <table border="1" cellpadding="10">
         <thead>
@@ -27,7 +29,7 @@
                <td>{{restaurant.resname}}</td>
                <td>{{restaurant.rating}}/5</td>
                <td>
-                <a href="{% url 'customer_menu' restaurant.id %}">View Menu</a>
+                <a href="{% url 'customer_menu' restaurant_id=restaurant.id username=username %}">Menu</a>
                </td>
             </tr>
             {% endfor %}

@@ -4,15 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>sign in</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'delivery/css/styles.css' %}">
 </head>
 <body>
-    <form method="post" action={%url 'handle_signin'%}>
-        {% csrf_token %}
-        <label for="username">USERNAME</label>
-        <input id="username" type="text" name="username"/></br></br>
-        <label for="pwd">PASSWORD</label>
-        <input id="pwd" type="password" name="password"/></br></br>
-        <button>SIGN-IN</button>
-    </form>
+    <div class="form-wrapper">
+        <form method="post" action={%url 'handle_signin'%}>
+            {% csrf_token %}
+            <label for="username">USERNAME</label>
+            <input id="username" type="text" name="username"/></br></br>
+            <label for="pwd">PASSWORD</label>
+            <input id="pwd" type="password" name="password"/></br></br>
+            <button>SIGN-IN</button>
+        </form>
+    </div>
 </body>
 </html>

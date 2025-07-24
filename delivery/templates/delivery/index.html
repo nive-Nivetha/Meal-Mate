@@ -3,18 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="main.css">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'delivery/css/styles.css' %}">
+    <title>Meal Mate | Home</title>
 </head>
 <body>
-    <h1>MEAL-MATE</h1>
-    <h3>Food Delivery wizards</h3>
-    <div class="login">
-        <a href="signin/">SIGN IN</a>
-        <a href="signup/">SIGN UP</a>
-    </div>
-    <div class="content">
-        <p>this is all about app</p>
-    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">🍽️ Meal Mate</div>
+        <div class="nav-links">
+            <a href="signin/">Sign In</a>
+            <a href="signup/">Sign Up</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Welcome to <span>Meal Mate</span></h1>
+        <h3>Your personal food delivery wizard</h3>
+        <p>Order your favorite meals from local restaurants and get them delivered hot and fresh to your doorstep.</p>
+        <button onclick="window.location.href='signup/'">Get Started</button>
+    </section>
+
 </body>
 </html>
